@@ -1,0 +1,20 @@
+public class Solution {
+    public int removeDuplicates(int[] nums) {
+        // Edge case: If the array is empty, return 0
+        if (nums.length == 0) return 0;
+
+        int i = 0; // Pointer for placing the next unique element
+
+        // Traverse the array starting from the second element
+        for (int j = 1; j < nums.length; j++) {
+            // If the current element is different from the previous unique one
+            if (nums[j] != nums[i]) {
+                i++; // Move the pointer for unique elements
+                nums[i] = nums[j]; // Place the current element in its position
+            }
+        }
+
+        // The number of unique elements is i + 1
+        return i + 1;
+    }
+}
